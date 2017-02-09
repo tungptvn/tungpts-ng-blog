@@ -4,7 +4,7 @@
     .factory('postsData', ['$http',  function($http){
         var dataFactory = {};
         dataFactory.getPosts = function(){
-            return  $http.get('/database/posts-mockdata.json').then(function(result){
+            return  $http.get('database/posts-mockdata.json').then(function(result){
                 return _.take( result.data, 10);
             });
         };
