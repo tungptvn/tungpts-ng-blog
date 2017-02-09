@@ -18,7 +18,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
                 <div ng-repeat="post in posts" class="post-preview">
-                    <a href="post.html">
+                    <a href="#">
                         <h2 class="post-title">
                             {{post.title}}
                         </h2>
@@ -33,7 +33,8 @@
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
+                        <!--<a href="#">Older Posts &rarr;</a>-->
+                        <span ng-click="loadMore()"> Older Posts </span>
                     </li>
                 </ul>
             </div>

@@ -9,10 +9,17 @@ angular.module('myApp.home', ['ngRoute', 'myApp.services'])
   });
 }])
 
-.controller('homeCtrl', ['$scope', '$http','postsData', function ($scope, $http, postsData) {
-  postsData.getPosts().then(function(result){
-  
-    $scope.posts= result;
+.controller('homeCtrl', ['$scope', '$http', 'postsData', function ($scope, $http, postsData) {
+  var current = 0;
+  $scope.posts = [];
+  postsData.getMorePosts(current, 10).then(function (result) {
+    $scope.posts = _.concat($scope.posts, result);
   });
-  
+  $scope.loadMore = function () {
+    postsData.getMorePosts(current, 10).then(function (result) {
+      $scope.posts = _.concat($scope.posts, result);
+    });
+    current++;
+  };
+
 }]);
