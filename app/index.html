@@ -2,8 +2,14 @@
 <html lang="en">
 
 <head>
-
   <base href="/">
+  <script>
+    if (window.location.hostname != 'localhost') {
+      document.getElementsByTagName("base")[0].setAttribute("href", "https://tungptvn.github.io/tungpts-ng-blog/");
+    }
+
+  </script>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title ng-bind="pageTitle"></title>
@@ -11,7 +17,6 @@
   <meta name="viewport" content="width=device-width">
 
   <link rel="stylesheet" href="css/main.css">
-
   <!-- Bootstrap Core CSS -->
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
