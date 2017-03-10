@@ -36,6 +36,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // PUT: api/Posts/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutPost(long id, Post post)
         {
@@ -71,6 +72,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // POST: api/Posts
+        [Authorize]
         [ResponseType(typeof(Post))]
         public IHttpActionResult PostPost(Post post)
         {
@@ -86,6 +88,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // DELETE: api/Posts/5
+        [Authorize]
         [ResponseType(typeof(Post))]
         public IHttpActionResult DeletePost(long id)
         {

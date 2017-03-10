@@ -36,6 +36,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // PUT: api/Categories/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCategory(long id, Category category)
         {
@@ -71,6 +72,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // POST: api/Categories
+        [Authorize]
         [ResponseType(typeof(Category))]
         public IHttpActionResult PostCategory(Category category)
         {
@@ -86,6 +88,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // DELETE: api/Categories/5
+        [Authorize]
         [ResponseType(typeof(Category))]
         public IHttpActionResult DeleteCategory(long id)
         {
