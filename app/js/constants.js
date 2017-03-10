@@ -1,6 +1,6 @@
 const AppSettings = {
-  appTitle: 'Example Application',
-  apiUrl: '/api/v1'
+  appTitle: 'A angularjs blog',
+  apiUrl: 'http://localhost:52789/'
 };
 
 export default AppSettings;
