@@ -239,6 +239,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703101442096_init.cs" />
+    <Compile Include="Migrations\201703101442096_init.Designer.cs">
+      <DependentUpon>201703101442096_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703101445162_add_category_and_post.cs" />
+    <Compile Include="Migrations\201703101445162_add_category_and_post.Designer.cs">
+      <DependentUpon>201703101445162_add_category_and_post.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703101513465_add_admin_user.cs" />
+    <Compile Include="Migrations\201703101513465_add_admin_user.Designer.cs">
+      <DependentUpon>201703101513465_add_admin_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -320,6 +332,17 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703101442096_init.resx">
+      <DependentUpon>201703101442096_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101445162_add_category_and_post.resx">
+      <DependentUpon>201703101445162_add_category_and_post.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101513465_add_admin_user.resx">
+      <DependentUpon>201703101513465_add_admin_user.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
