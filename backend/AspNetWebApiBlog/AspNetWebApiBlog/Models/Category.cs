@@ -9,7 +9,7 @@ namespace AspNetWebApiBlog.Models
     public class Category
     {
         public long Id { get; private set; }
-        public string CategoryName { get; private set; }
+        public string CategoryName { get;  set; }
         public string Image { get; set; }
         public string Description { get; set; }
         public DateTime CreateDate { get; set; }

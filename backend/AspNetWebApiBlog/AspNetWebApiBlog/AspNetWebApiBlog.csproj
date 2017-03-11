@@ -257,6 +257,10 @@
     <Compile Include="Migrations\201703110633577_add_Status_hitCouter.Designer.cs">
       <DependentUpon>201703110633577_add_Status_hitCouter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703110702525_add_categories_data.cs" />
+    <Compile Include="Migrations\201703110702525_add_categories_data.Designer.cs">
+      <DependentUpon>201703110702525_add_categories_data.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703110633577_add_Status_hitCouter.resx">
       <DependentUpon>201703110633577_add_Status_hitCouter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703110702525_add_categories_data.resx">
+      <DependentUpon>201703110702525_add_categories_data.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

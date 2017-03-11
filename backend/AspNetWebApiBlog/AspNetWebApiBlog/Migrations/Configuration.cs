@@ -4,6 +4,7 @@ namespace AspNetWebApiBlog.Migrations
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -18,7 +19,26 @@ namespace AspNetWebApiBlog.Migrations
         protected override void Seed(AspNetWebApiBlog.Models.ApplicationDbContext context)
         {
             InitializeIdentityForEF(context);
+            InitializeCategoies(context);
         }
+
+        private void InitializeCategoies(ApplicationDbContext context)
+        {
+            if (!context.Categories.Any())
+            {
+                var InitialCategories = new List<Category>()
+                {
+                    new Category() {CategoryName="Design", CreateDate = DateTime.Now ,Description=" patterns are one of the most effective" },
+                    new Category() {CategoryName="Agile", CreateDate =  DateTime.Now, Description = "Agile methods" },
+                    new Category() {CategoryName="Refactoring", CreateDate = DateTime.Now, Description= "Code Refactoring" }
+
+                };
+
+                context.Categories.AddRange(InitialCategories);
+                context.SaveChanges();
+            }
+        }
+
         public static void InitializeIdentityForEF(ApplicationDbContext db)
         {
 
