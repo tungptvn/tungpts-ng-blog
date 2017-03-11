@@ -9,12 +9,18 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AspNetWebApiBlog.Models;
+using System.Web.Http.Cors;
 
 namespace AspNetWebApiBlog.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class CategoriesController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        public CategoriesController()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+        }
 
         // GET: api/Categories
         public IQueryable<Category> GetCategories()
