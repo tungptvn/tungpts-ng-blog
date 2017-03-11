@@ -6,16 +6,21 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
   }
 
   $locationProvider.html5Mode({
-    enabled: true,
+    enabled: false,
     requireBase: false
   });
 
   $stateProvider
-    .state('Home', {
+    .state('home', {
       url: '/',
-      controller: 'homeCtrl as home',
+      controller: 'homeCtrl as vm',
       templateUrl: 'home.html',
-      title: 'Home'
+      title: 'Home',
+      resolve:{
+        categoriesResolve: function(categoriesService){
+          return categoriesService.getAll();
+        }
+      }
     }).state('about', {
       url: '/about',
       controller: 'aboutCtrl as about',

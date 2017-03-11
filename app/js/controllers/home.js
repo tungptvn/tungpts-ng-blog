@@ -1,9 +1,9 @@
-
-function homeCtrl(postService) {
- 'ngInject';
+function homeCtrl(categoriesResolve) {
+  'ngInject';
   // ViewModel
   const vm = this;
-  postService.get();
+  vm.categories = categoriesResolve;
+  
   vm.title = 'AngularJS, Gulp, and Browserify! Written with keyboards and love!';
   vm.number = 1234;
 
