@@ -15,6 +15,7 @@ namespace AspNetWebApiBlog.Models
         public string Status { get; set; }
         public string FeatureImage { get; set; }
         public string Content { get; set; }
+        public int HitCounter { get; set; }
         public DateTime PostDate { get; set; }
         public long CategoryId { get; private set; }
         [ForeignKey("CategoryId")]

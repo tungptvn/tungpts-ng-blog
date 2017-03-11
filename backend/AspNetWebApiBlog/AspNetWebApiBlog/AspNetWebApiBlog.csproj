@@ -253,6 +253,10 @@
     <Compile Include="Migrations\201703101513465_add_admin_user.Designer.cs">
       <DependentUpon>201703101513465_add_admin_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703110633577_add_Status_hitCouter.cs" />
+    <Compile Include="Migrations\201703110633577_add_Status_hitCouter.Designer.cs">
+      <DependentUpon>201703110633577_add_Status_hitCouter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -344,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703101513465_add_admin_user.resx">
       <DependentUpon>201703101513465_add_admin_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703110633577_add_Status_hitCouter.resx">
+      <DependentUpon>201703110633577_add_Status_hitCouter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

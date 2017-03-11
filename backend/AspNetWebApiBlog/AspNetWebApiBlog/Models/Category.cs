@@ -13,6 +13,7 @@ namespace AspNetWebApiBlog.Models
         public string Image { get; set; }
         public string Description { get; set; }
         public DateTime CreateDate { get; set; }
+        public string Status { get; set; }
         public long? ParentCategoryId { get; private set; }
         public virtual Category ParentCategory { get; private set; }
         public virtual ICollection<Category> SubCategories { get; private set; }
