@@ -30,9 +30,11 @@ namespace AspNetWebApiBlog.Migrations
                 {
                     new Category() {CategoryName="Design", CreateDate = DateTime.Now ,Description=" patterns are one of the most effective" },
                     new Category() {CategoryName="Agile", CreateDate =  DateTime.Now, Description = "Agile methods" },
-                    new Category() {CategoryName="Refactoring", CreateDate = DateTime.Now, Description= "Code Refactoring" }
-
-                };
+                    new Category() {CategoryName="Refactoring", CreateDate = DateTime.Now, Description= "Code Refactoring" },
+                    new Category() {CategoryName="Permanent storage", CreateDate = DateTime.Now ,Description=" Permanent storage" },
+                    new Category() {CategoryName="FronEnd", CreateDate = DateTime.Now ,Description="FronEnd"},
+                    new Category() {CategoryName="BackEnd", CreateDate = DateTime.Now ,Description="Business logic tier" },
+                                    };
 
                 context.Categories.AddRange(InitialCategories);
                 context.SaveChanges();
