@@ -34,7 +34,8 @@ namespace AspNetWebApiBlog.Controllers
 
             return Ok(post);
         }
-        // GET: api/Posts/5
+        // GET: api/GetPostByCategory/5
+        [Route("/api/GetPostByCategory/{id}")]
         [ResponseType(typeof(Post))]
         public IQueryable<Post> GetPostByCategory(long id)
         {
