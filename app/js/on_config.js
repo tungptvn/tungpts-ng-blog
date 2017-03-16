@@ -38,8 +38,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       templateUrl: 'home/contact.html',
       title: 'contact'
     })
-
-  ;
+    .state('default.category', {
+      url: 'category/:Id',
+      controller: 'categoryCtrl as category',
+      templateUrl: 'home/category.html',
+      title: 'category'
+    });
 
 
 
