@@ -19,7 +19,7 @@ namespace AspNetWebApiBlog.Controllers
         // GET: api/Posts
         public IQueryable<Post> GetPosts()
         {
-            return db.Posts.OrderByDescending(x=>x.PostDate);
+            return db.Posts;
         }
 
         // GET: api/Posts/5
@@ -34,15 +34,15 @@ namespace AspNetWebApiBlog.Controllers
 
             return Ok(post);
         }
-        // GET: api/GetPostByCategory/5
+        // GET: api/Posts/5
         [ResponseType(typeof(Post))]
         public IQueryable<Post> GetPostByCategory(long id)
         {
-            return db.Posts.Where(x => x.Id == id).OrderByDescending(x => x.PostDate);
+            return db.Posts.Where(x => x.Id == id);
         }
 
         // PUT: api/Posts/5
-        [Authorize]
+       
         [ResponseType(typeof(void))]
         public IHttpActionResult PutPost(long id, Post post)
         {
@@ -78,7 +78,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // POST: api/Posts
-        [Authorize]
+     
         [ResponseType(typeof(Post))]
         public IHttpActionResult PostPost(Post post)
         {
@@ -94,7 +94,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // DELETE: api/Posts/5
-        [Authorize]
+      
         [ResponseType(typeof(Post))]
         public IHttpActionResult DeletePost(long id)
         {
