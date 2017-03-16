@@ -6,7 +6,11 @@ function defaultCtrl(categoriesResolve, $state) {
 
   vm.title = 'AngularJS, Gulp, and Browserify! Written with keyboards and love!';
   vm.number = 1234;
-  $state.transitionTo('default.home');
+  if ($state.$current.name == 'default') {
+    $state.transitionTo('default.home');
+
+  }
+  console.log($state);
 
 }
 
