@@ -1,8 +1,9 @@
 import angular from 'angular';
-global.jQuery = require('jquery');
-require('bootstrap');
-// import 'jquery';
-// import 'bootstrap';
+import 'angular-sanitize';
+// global.jQuery = require('jquery');
+// require('bootstrap');
+import 'jquery';
+import 'bootstrap';
 // angular modules
 import constants from './constants';
 import onConfig  from './on_config';
@@ -17,6 +18,7 @@ import './directives';
 
 // create and bootstrap application
 const requires = [
+  'ngSanitize',
   'ui.router',
   'templates',
   'app.filters',

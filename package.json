@@ -43,6 +43,7 @@
     "unit": "cross-env NODE_ENV=test ./node_modules/.bin/gulp unit"
   },
   "dependencies": {
+    "angular-sanitize": "^1.6.3",
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
     "browserify-shim": "^3.8.13",

@@ -23,4 +23,9 @@
 <!-- Post Content -->
 
 
-{{post.post.Content}}
+<!--{{post.post.Content}}-->
+<ng-bind-html
+  ng-bind-html="post.post.Content">
+
+</ng-bind-html>
+ <p ng-bind-html="post.post.Content"></p>
