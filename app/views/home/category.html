@@ -6,7 +6,7 @@
 <!-- First Blog Post -->
 <div ng-repeat="post in category.posts">
   <h2>
-    <a href="#">{{post.Title}}</a>
+    <a ui-sref="default.post({Id: post.Id})">{{post.Title}}</a>
   </h2>
   <p class="lead">
     by <a>admin</a>
