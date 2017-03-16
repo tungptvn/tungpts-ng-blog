@@ -34,6 +34,12 @@ namespace AspNetWebApiBlog.Controllers
 
             return Ok(post);
         }
+        // GET: api/GetPostByCategory/5
+        [ResponseType(typeof(Post))]
+        public IQueryable<Post> GetPostByCategory(long id)
+        {
+            return db.Posts.Where(x => x.Id == id);
+        }
 
         // PUT: api/Posts/5
         [Authorize]
