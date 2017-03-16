@@ -9,9 +9,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AspNetWebApiBlog.Models;
+using System.Web.Http.Cors;
 
 namespace AspNetWebApiBlog.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class PostsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -35,11 +37,11 @@ namespace AspNetWebApiBlog.Controllers
             return Ok(post);
         }
         // GET: api/GetPostByCategory/5
-        [Route("/api/GetPostByCategory/{id}")]
+        [Route("api/GetPostByCategory/{id}")]
         [ResponseType(typeof(Post))]
         public IQueryable<Post> GetPostByCategory(long id)
         {
-            return db.Posts.Where(x => x.Id == id);
+            return db.Posts.Where(x => x.CategoryId == id);
         }
 
         // PUT: api/Posts/5
