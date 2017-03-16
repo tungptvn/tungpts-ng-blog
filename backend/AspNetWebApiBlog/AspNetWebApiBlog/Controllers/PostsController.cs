@@ -19,7 +19,7 @@ namespace AspNetWebApiBlog.Controllers
         // GET: api/Posts
         public IQueryable<Post> GetPosts()
         {
-            return db.Posts;
+            return db.Posts.OrderByDescending(x=>x.PostDate);
         }
 
         // GET: api/Posts/5
@@ -38,7 +38,7 @@ namespace AspNetWebApiBlog.Controllers
         [ResponseType(typeof(Post))]
         public IQueryable<Post> GetPostByCategory(long id)
         {
-            return db.Posts.Where(x => x.Id == id);
+            return db.Posts.Where(x => x.Id == id).OrderByDescending(x => x.PostDate);
         }
 
         // PUT: api/Posts/5
