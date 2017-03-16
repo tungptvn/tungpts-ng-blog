@@ -44,7 +44,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       templateUrl: 'home/category.html',
       title: 'category',
       resolve: {
-        categoryResolve: function (categoriesService,$stateParams) {
+        categoryResolve: function (categoriesService, $stateParams) {
           return categoriesService.getBy($stateParams.Id);
         },
         postByCategoryResolve: function (postService, $stateParams) {
@@ -55,7 +55,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       url: 'post/:Id',
       controller: 'postCtrl as post',
       templateUrl: 'home/post.html',
-      title: 'post'
+      title: 'post',
+      resolve: {
+        postResolve: function (postService, $stateParams) {
+          return postService.getBy($stateParams.Id);
+        }
+      }
     })
     .state('admin', {
       url: 'admin',
