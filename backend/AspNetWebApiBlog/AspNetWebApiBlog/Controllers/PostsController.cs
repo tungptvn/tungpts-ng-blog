@@ -17,6 +17,10 @@ namespace AspNetWebApiBlog.Controllers
     public class PostsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        public PostsController()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+        }
 
         // GET: api/Posts
         public IQueryable<Post> GetPosts()
@@ -38,6 +42,7 @@ namespace AspNetWebApiBlog.Controllers
         }
         // GET: api/GetPostByCategory/5
         [Route("api/GetPostByCategory/{id}")]
+        [HttpGet]
         [ResponseType(typeof(Post))]
         public IQueryable<Post> GetPostByCategory(long id)
         {

@@ -17,11 +17,6 @@ namespace AspNetWebApiBlog.Controllers
     public class CategoriesController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        public CategoriesController()
-        {
-            db.Configuration.LazyLoadingEnabled = false;
-        }
-
         // GET: api/Categories
         public IQueryable<Category> GetCategories()
         {
