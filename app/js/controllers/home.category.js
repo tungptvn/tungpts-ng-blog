@@ -1,9 +1,10 @@
-function categoryCtrl(postByCategoryResolve) {
+function categoryCtrl(postByCategoryResolve, categoryResolve) {
   'ngInject';
   // ViewModel
   const vm = this;
 
   vm.title = 'this is category state';
+  vm.category = categoryResolve;
   vm.posts = postByCategoryResolve;
   console.log('postByCategoryResolve', vm.posts);
 }
