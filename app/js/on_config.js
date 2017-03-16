@@ -13,7 +13,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
   $stateProvider
     .state('default', {
       url: '/',
-      controller: 'defaultCtrl as vm',
+      controller: 'defaultCtrl as default',
       templateUrl: 'default.html',
       title: 'default',
       resolve: {
@@ -25,6 +25,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
     .state('default.home', {
 
       templateUrl: 'home/index.html',
+      controller: 'homeCtrl as home',
       title: 'home'
     }).state('default.about', {
       url: 'about',
@@ -33,7 +34,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       title: 'about'
     }).state('default.contact', {
       url: 'contact',
-      controller: 'contactCtrl as me',
+      controller: 'contactCtrl as contact',
       templateUrl: 'home/contact.html',
       title: 'contact'
     })
