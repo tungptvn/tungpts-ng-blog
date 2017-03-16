@@ -42,7 +42,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       url: 'category/:Id',
       controller: 'categoryCtrl as category',
       templateUrl: 'home/category.html',
-      title: 'category'
+      title: 'category',
+      resolve: {
+        postByCategoryResolve: function (categoriesService, $stateParams) {
+          return categoriesService.getPostByCategory($stateParams.Id);
+        }
+      }
     }).state('default.post', {
       url: 'post/:Id',
       controller: 'postCtrl as post',
