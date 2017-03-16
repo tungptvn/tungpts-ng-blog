@@ -16,28 +16,29 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       controller: 'defaultCtrl as vm',
       templateUrl: 'default.html',
       title: 'default',
-      resolve:{
-        categoriesResolve: function(categoriesService){
+      resolve: {
+        categoriesResolve: function (categoriesService) {
           return categoriesService.getAll();
         }
       }
-    }).state('about', {
-      url: '/about',
-      controller: 'aboutCtrl as about',
-      templateUrl: 'about.html',
-      title: 'about'
-    }).state('contact', {
-      url: '/contact',
-      controller: 'contactCtrl as me',
-      templateUrl: 'contact.html',
-      title: 'contact'
     })
     .state('default.home', {
 
-      templateUrl:'about.html',
-      title:'about test'
+      templateUrl: 'home/index.html',
+      title: 'home'
+    }).state('default.about', {
+      url: 'about',
+      controller: 'aboutCtrl as about',
+      templateUrl: 'home/about.html',
+      title: 'about'
+    }).state('default.contact', {
+      url: 'contact',
+      controller: 'contactCtrl as me',
+      templateUrl: 'home/contact.html',
+      title: 'contact'
     })
-    ;
+
+  ;
 
 
 

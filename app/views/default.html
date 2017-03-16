@@ -8,19 +8,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" ui-sref="default.home">
+        <i class="glyphicon glyphicon-home"></i>
+      </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#">About</a>
+          <a ui-sref="default.home">home</a>
+
         </li>
         <li>
-          <a href="#">Services</a>
+          <a ui-sref="default.about">about</a>
         </li>
         <li>
-          <a href="#">Contact</a>
+          <a ui-sref="default.contact">contact</a>
         </li>
       </ul>
     </div>
@@ -33,7 +36,10 @@
   <div class="row">
 
     <!-- Blog Entries Column -->
-    <div ui-view></div>
+    <div class="col-md-8">
+      <!-- Pager -->
+      <div ui-view></div>
+    </div>
 
     <!-- Blog Sidebar Widgets Column -->
     <div class="col-md-4">
