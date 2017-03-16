@@ -61,7 +61,7 @@
         <div class="row">
           <div class="col-lg-6">
             <ul class="list-unstyled">
-              <li ng-repeat="cat in default.categories"><a href="#">{{cat.CategoryName}}</a>
+              <li  ng-repeat="cat in default.categories"><a  ui-sref="default.category({Id: cat.Id})">{{cat.CategoryName}}</a>
               </li>
             </ul>
           </div>
