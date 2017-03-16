@@ -48,6 +48,18 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       controller: 'postCtrl as post',
       templateUrl: 'home/post.html',
       title: 'post'
+    })
+    .state('admin', {
+      url: 'admin',
+      controller: 'adminCtrl as admin',
+      templateUrl: 'admin/index.html',
+      title: 'admin'
+    })
+    .state('admin.postMng', {
+      url: 'postMng/:Id',
+      controller: 'postMngCtrl as postMng',
+      templateUrl: 'admin/postMng.html',
+      title: 'postMng'
     });
 
 
