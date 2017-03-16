@@ -13,7 +13,7 @@
   </p>
   <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.PostDate}}</p>
   <hr>
-  <img class="img-responsive" ng-src="post.FeatureImage" alt="">
+  <img class="img-responsive" ng-src="{{post.FeatureImage}}" alt="">
   <hr>
   <p>{{post.Title}}</p>
   <a ui-sref="default.post({Id: post.Id})" class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
