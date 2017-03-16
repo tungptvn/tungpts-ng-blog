@@ -11,11 +11,11 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
   });
 
   $stateProvider
-    .state('home', {
+    .state('default', {
       url: '/',
-      controller: 'homeCtrl as vm',
-      templateUrl: 'home.html',
-      title: 'Home',
+      controller: 'defaultCtrl as vm',
+      templateUrl: 'default.html',
+      title: 'default',
       resolve:{
         categoriesResolve: function(categoriesService){
           return categoriesService.getAll();
@@ -31,7 +31,15 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       controller: 'contactCtrl as me',
       templateUrl: 'contact.html',
       title: 'contact'
-    });
+    })
+    .state('default.home', {
+
+      templateUrl:'about.html',
+      title:'about test'
+    })
+    ;
+
+
 
   $urlRouterProvider.otherwise('/');
 

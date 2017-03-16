@@ -1,6 +1,8 @@
 import angular from 'angular';
-import 'jquery';
-import 'bootstrap';
+global.jQuery = require('jquery');
+require('bootstrap');
+// import 'jquery';
+// import 'bootstrap';
 // angular modules
 import constants from './constants';
 import onConfig  from './on_config';
