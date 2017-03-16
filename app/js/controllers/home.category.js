@@ -6,7 +6,6 @@ function categoryCtrl(postByCategoryResolve, categoryResolve) {
   vm.title = 'this is category state';
   vm.category = categoryResolve;
   vm.posts = postByCategoryResolve;
-  console.log('postByCategoryResolve', vm.posts);
 }
 
 export default {
