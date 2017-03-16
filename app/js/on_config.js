@@ -43,6 +43,11 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       controller: 'categoryCtrl as category',
       templateUrl: 'home/category.html',
       title: 'category'
+    }).state('default.post', {
+      url: 'post/:Id',
+      controller: 'postCtrl as post',
+      templateUrl: 'home/post.html',
+      title: 'post'
     });
 
 
