@@ -23,6 +23,7 @@ namespace AspNetWebApiBlog.Models
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser Author { get; set; }
+        public virtual ICollection<Comment> Comments { get; private set; }
     }
 
 }
