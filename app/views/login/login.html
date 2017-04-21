@@ -9,10 +9,10 @@
                         <form role="form" ng-submit="loginVM.login()">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus ng-model="loginVM.userCred.username">
+                                    <input class="form-control" placeholder="UserName"  type="text" autofocus ng-model="loginVM.userCred.username" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" ng-model="loginVM.userCred.password">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" ng-model="loginVM.userCred.password" required>
                                 </div>
                                 <div class="checkbox">
                                     <label>

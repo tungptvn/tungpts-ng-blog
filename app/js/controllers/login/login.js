@@ -1,4 +1,4 @@
-function loginCtrl($log) {
+function loginCtrl($log,authService) {
   'ngInject';
   // ViewModel
   const vm = this;
@@ -8,6 +8,7 @@ function loginCtrl($log) {
   vm.login = function(){
     $log.info('asdasd');
     $log.debug(vm.userCred);
+    authService.login(vm.userCred);
   }
 }
 
