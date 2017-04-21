@@ -78,7 +78,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       url: '/login',
       controller: 'loginCtrl as loginVM',
       templateUrl: 'login/login.html',
-      title: 'login'
+      title: 'login',
     });
 
 

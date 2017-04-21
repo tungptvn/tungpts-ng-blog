@@ -20,11 +20,18 @@ function authService($http, storage, $log) {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         })
-        .then(data => {
-          resolve(data.data);
+        .then(res => {
           $log.info('response token');
+          storage.set('token', res.data.access_token);
+          axios.defaults.headers = {
+            'Authorization': `Bearer ${res.data.access_token}`
+          };
+          resolve(res.data);
         })
-        .catch(err => reject(err))
+        .catch(err => {
+          reject(err);
+          $log.error(err);
+        })
 
     });
 
