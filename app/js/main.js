@@ -1,13 +1,18 @@
+global.Promise = require('bluebird');
+global.Promise.config({
+  warnings: {
+    wForgottenReturn: false
+  }
+});
+
 import angular from 'angular';
 import 'angular-sanitize';
-// global.jQuery = require('jquery');
-// require('bootstrap');
 import 'jquery';
 import 'bootstrap';
 // angular modules
 import constants from './constants';
-import onConfig  from './on_config';
-import onRun     from './on_run';
+import onConfig from './on_config';
+import onRun from './on_run';
 import 'angular-ui-router';
 import './templates';
 import './filters';
