@@ -15,7 +15,6 @@ import './controllers';
 import './services';
 import './factories';
 import './directives';
-
 // create and bootstrap application
 const requires = [
   'ngSanitize',

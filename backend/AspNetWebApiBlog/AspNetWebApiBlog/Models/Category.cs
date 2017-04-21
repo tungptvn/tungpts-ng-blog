@@ -11,7 +11,7 @@ namespace AspNetWebApiBlog.Models
         public long Id { get; private set; }
         public string CategoryName { get;  set; }
         public string Image { get; set; }
-        public string Description { get; set; }
+        public string CatDescription { get; set; }
         public DateTime CreateDate { get; set; }
         public string Status { get; set; }
         public long? ParentCategoryId { get; private set; }

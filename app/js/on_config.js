@@ -63,16 +63,22 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       }
     })
     .state('admin', {
-      url: 'admin',
+      url: '/admin',
       controller: 'adminCtrl as admin',
       templateUrl: 'admin/index.html',
       title: 'admin'
     })
     .state('admin.postMng', {
-      url: 'postMng/:Id',
+      url: '/postMng',
       controller: 'postMngCtrl as postMng',
-      templateUrl: 'admin/postMng.html',
+      templateUrl: 'admin/post.html',
       title: 'postMng'
+    })
+    .state('login', {
+      url: '/login',
+      controller: 'loginCtrl as loginVM',
+      templateUrl: 'login/login.html',
+      title: 'login'
     });
 
 

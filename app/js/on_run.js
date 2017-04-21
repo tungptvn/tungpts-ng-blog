@@ -1,6 +1,8 @@
+import axios from 'axios';
+
 function OnRun($rootScope, AppSettings) {
   'ngInject';
-
+  axios.defaults.baseURL = AppSettings.apiUrl;
   // change page title based on state
   $rootScope.$on('$stateChangeSuccess', (event, toState) => {
     $rootScope.pageTitle = '';

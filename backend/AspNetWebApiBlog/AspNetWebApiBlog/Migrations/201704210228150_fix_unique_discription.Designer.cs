@@ -7,13 +7,13 @@ namespace AspNetWebApiBlog.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class chore : IMigrationMetadata
+    public sealed partial class fix_unique_discription : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(chore));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fix_unique_discription));
         
         string IMigrationMetadata.Id
         {
-            get { return "201704191514101_chore"; }
+            get { return "201704210228150_fix_unique_discription"; }
         }
         
         string IMigrationMetadata.Source

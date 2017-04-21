@@ -11,7 +11,7 @@ namespace AspNetWebApiBlog.Models
     {
         public long Id { get; private set; }
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string PostDescription { get; set; }
         public string Slug { get; set; }
         public string Status { get; set; }
         public string FeatureImage { get; set; }
