@@ -1,10 +1,80 @@
-  <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header"></h1>
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">{{postSave.title()}}</h1>
+    <form class="form-horizontal" ng-submit="postSave.save()">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Title">Title:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Title" ng-model="postSave.item.Title">
+        </div>
       </div>
-      <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <div class="row">
-     
-    </div>
+      <div class="form-group">
+
+        <label class="control-label col-sm-2" for="FeatureImage">FeatureImage:</label>
+        <div class="col-sm-10">
+          <input id="imgFile" type="file" class="form-control"></input>
+          <img style="padding-top: 3px" ng-show="postSave.item.FeatureImage" id="imgDisplay" data-ng-src="{{postSave.item.FeatureImage}}"
+            height="80px">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="PostDescription">PostDescription:</label>
+        <div class="col-sm-10">
+          <input type="text" id="mytextarea" class="form-control" placeholder="PostDescription" ng-model="postSave.item.Content"></input>
+        </div>
+      </div>
+      <!--<div class="form-group">
+        <label class="control-label col-sm-2" for="CreateDate">CreateDate:</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" placeholder="CreateDate" ng-model="postSave.item.CreateDate">
+        </div>
+      </div>-->
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Status">Status:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Status" ng-model="postSave.item.Status">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="HitCounter">HitCounter:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" readonly placeholder="HitCounter" ng-model="postSave.item.HitCounter">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="PostDate">PostDate:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" readonly placeholder="PostDate" ng-model="postSave.item.PostDate">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="CategoryId">CategoryId:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="CategoryId" ng-model="postSave.item.CategoryId">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Content">Content:</label>
+        <div class="col-sm-10">
+           <textarea ui-tinymce ng-model="postSave.item.Content"></textarea>
+          <!--<input id="summernote" ng-model="postSave.item.Content"></input>-->
+          <!--<input type="text" class="form-control" placeholder="Content" ng-model="postSave.item.Content">-->
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Author">Author:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Author" ng-model="postSave.item.Author">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->

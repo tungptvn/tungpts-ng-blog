@@ -1,8 +1,9 @@
-function postMngCtrl() {
-
+function postMngCtrl(postList) {
+  'ngInject';
   // ViewModel
   const vm = this;
-
+  vm.postList = postList;
+  vm.searchText = 'asdas';
   vm.title = 'Posts Management';
 }
 

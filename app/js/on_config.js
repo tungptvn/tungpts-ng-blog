@@ -72,13 +72,23 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       url: '/postMng',
       controller: 'postMngCtrl as postMng',
       templateUrl: 'admin/post.mng.html',
-      title: 'postMng'
+      title: 'postMng',
+      resolve: {
+        postList: function (postService) {
+          return postService.getAll();
+        }
+      }
     })
     .state('admin.postSave', {
       url: '/postSave/:Id',
       controller: 'postSaveCtrl as postSave',
-      templateUrl: 'admin/post.html',
-      title: 'postSave'
+      templateUrl: 'admin/post.save.html',
+      title: 'postSave',
+      resolve: {
+        postItem: function (postService, $stateParams) {
+          return postService.getBy($stateParams.Id);
+        }
+      }
     })
     .state('admin.catMng', {
       url: '/catMng',
@@ -97,7 +107,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       templateUrl: 'admin/cat.save.html',
       title: 'catSave',
       resolve: {
-        catItem: function (categoriesService,$stateParams) {
+        catItem: function (categoriesService, $stateParams) {
           return categoriesService.getBy($stateParams.Id);
         }
       }

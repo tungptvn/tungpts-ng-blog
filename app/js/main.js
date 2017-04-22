@@ -7,12 +7,15 @@ global.Promise.config({
 
 import angular from 'angular';
 import 'angular-sanitize';
+// export for others scripts to use
 import 'jquery';
 import 'bootstrap';
+import '../vendor/tinymce/tinymce';
 // angular modules
 import constants from './constants';
 import onConfig from './on_config';
 import onRun from './on_run';
+// import 'angular-ui-tinymce';
 import 'angular-ui-router';
 import './templates';
 import './filters';
@@ -22,6 +25,7 @@ import './factories';
 import './directives';
 // create and bootstrap application
 const requires = [
+  // 'ui.tinymce',
   'ngSanitize',
   'ui.router',
   'templates',
@@ -29,7 +33,8 @@ const requires = [
   'app.controllers',
   'app.services',
   'app.factories',
-  'app.directives'
+  'app.directives',
+
 ];
 
 // mount on window for testing
