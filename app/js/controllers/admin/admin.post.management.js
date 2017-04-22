@@ -3,7 +3,7 @@ function postMngCtrl() {
   // ViewModel
   const vm = this;
 
-  vm.title = 'this is postMng';
+  vm.title = 'Posts Management';
 }
 
 export default {

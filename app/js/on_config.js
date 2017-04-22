@@ -71,8 +71,26 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
     .state('admin.postMng', {
       url: '/postMng',
       controller: 'postMngCtrl as postMng',
-      templateUrl: 'admin/post.html',
+      templateUrl: 'admin/post.mng.html',
       title: 'postMng'
+    })
+      .state('admin.postSave', {
+      url: '/postSave/:Id',
+      controller: 'postSaveCtrl as postSave',
+      templateUrl: 'admin/post.html',
+      title: 'postSave'
+    })
+     .state('admin.catMng', {
+      url: '/catMng',
+      controller: 'catMngCtrl as catMng',
+      templateUrl: 'admin/cat.mng.html',
+      title: 'catMng'
+    })
+      .state('admin.catSave', {
+      url: '/catSave/:Id',
+      controller: 'catSaveCtrl as catSave',
+      templateUrl: 'admin/cat.save.html',
+      title: 'catSave'
     })
     .state('login', {
       url: '/login',
