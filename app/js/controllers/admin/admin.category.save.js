@@ -1,6 +1,7 @@
-function catSaveCtrl(catItem, categoriesService, $log) {
+function catSaveCtrl(catItem, categoriesService, $log, $scope, $state) {
   'ngInject';
   // ViewModel
+  $log.debug("$state", $state);
   const vm = this;
   vm.item = catItem;
   vm.title = function () {
@@ -13,19 +14,37 @@ function catSaveCtrl(catItem, categoriesService, $log) {
     switch (vm.item.Id) {
       case 0:
         categoriesService.post(vm.item).then(() => {
-          swal('Success');
+          swal('Success', 'Successfully save', 'success');
         }).catch(err => swal('Error', `${err}`, 'error'));
         break;
 
       default:
         categoriesService.put(vm.item.Id, vm.item).then(() => {
-          swal('Success');
+          swal('Success', 'Successfully save', 'success');
         }).catch(err => swal('Error', `${err}`, 'error'));
         break;
     }
     $log.debug('item', vm.item)
 
   }
+
+  function readFile() {
+
+    if (this.files && this.files[0]) {
+
+      var FR = new FileReader();
+
+      FR.addEventListener("load", function (e) {
+        document.getElementById("imgDisplay").src = e.target.result;
+        $scope.$apply(() => {
+          vm.item.Image = e.target.result;
+        })
+      });
+      FR.readAsDataURL(this.files[0]);
+    }
+
+  }
+  document.getElementById("imgFile").addEventListener("change", readFile);
 }
 
 export default {

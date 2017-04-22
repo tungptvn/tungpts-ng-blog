@@ -8,12 +8,21 @@
           <input type="text" class="form-control" placeholder="CategoryName" ng-model="catSave.item.CategoryName">
         </div>
       </div>
-      <div class="form-group">
+      <!--<div class="form-group">
         <label class="control-label col-sm-2" for="Image">Image:</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" placeholder="Image" ng-model="catSave.item.Image">
         </div>
+      </div>-->
+      <div class="form-group">
+
+        <label class="control-label col-sm-2" for="Image">Image:</label>
+        <div class="col-sm-10">
+          <input id="imgFile" type="file" class="form-control"></input>
+          <img style="padding-top: 3px" ng-show="catSave.item.Image" id="imgDisplay" data-ng-src="{{catSave.item.Image}}" height="80px">
+        </div>
       </div>
+
       <div class="form-group">
         <label class="control-label col-sm-2" for="CatDescription">CatDescription:</label>
         <div class="col-sm-10">

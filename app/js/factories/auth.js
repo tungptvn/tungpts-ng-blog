@@ -1,43 +1,43 @@
 import axios from 'axios';
 
-function authService($http, storage, $log) {
+function authService($http, storage, $log, AppSettings) {
   'ngInject';
 
-  const service = {};
-
-  service.isAuthenticated = function () {
-
+  const service = {
+    get isAuthenticated() {
+      return !!storage.get('token');
+    }
   };
+
 
   service.login = function (userCred) {
 
     return new Promise((resolve, reject) => {
-      axios({
-          url: 'TOKEN',
-          method: 'POST',
-          data: `grant_type=password&username=${userCred.username}&password=${userCred.password}`,
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
-        .then(res => {
-          $log.info('response token');
-          storage.set('token', res.data.access_token);
-          axios.defaults.headers = {
-            'Authorization': `Bearer ${res.data.access_token}`
-          };
-          resolve(res.data);
-        })
-        .catch(err => {
-          reject(err);
-          $log.error(err);
-        })
+      $http({
+        method: 'POST',
+        url: `${AppSettings.apiUrl}/TOKEN`,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: `grant_type=password&username=${userCred.username}&password=${userCred.password}`,
+      }).then(function (res) {
+        $log.info('response token');
+        storage.set('token', res.data.access_token);
+        axios.defaults.headers = {
+          'Authorization': `Bearer ${res.data.access_token}`
+        };
+        resolve(res.data);
 
+      }, function (err) {
+        reject(err.data);
+        $log.error(err);
+      });
     });
 
   }
-  service.logout = function () {
-
+  service.logout = function (cb) {
+    storage.remove('token');
+    cb();
   }
 
   return service;

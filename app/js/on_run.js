@@ -1,9 +1,14 @@
 import * as axios from 'axios'
 
-function OnRun($rootScope, AppSettings) {
+function OnRun($rootScope, AppSettings, storage) {
   'ngInject';
   axios.defaults.baseURL = AppSettings.apiUrl;
-  // change page title based on state
+  var token = storage.get('token');
+  if (token) {
+    axios.defaults.headers = {
+      'Authorization': `Bearer ${token}`
+    };
+  }
   $rootScope.$on('$stateChangeSuccess', (event, toState) => {
     $rootScope.pageTitle = '';
 

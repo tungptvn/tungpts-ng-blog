@@ -1,8 +1,10 @@
 import 'sweetalert';
 
-function catMngCtrl(catList, categoriesService) {
+function catMngCtrl(catList, categoriesService,$state,$log) {
   'ngInject';
   // ViewModel
+  
+  $log.debug("$state", $state);
   const vm = this;
   vm.catList = catList;
   vm.title = 'Categories Management';
