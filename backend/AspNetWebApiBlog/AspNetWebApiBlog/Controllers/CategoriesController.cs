@@ -81,7 +81,6 @@ namespace AspNetWebApiBlog.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             db.Categories.Add(category);
             db.SaveChanges();
 

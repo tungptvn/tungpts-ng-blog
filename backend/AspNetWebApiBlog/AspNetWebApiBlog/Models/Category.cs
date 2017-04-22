@@ -8,11 +8,11 @@ namespace AspNetWebApiBlog.Models
 {
     public class Category
     {
-        public long Id { get; private set; }
+        public long Id { get;  set; }
         public string CategoryName { get;  set; }
         public string Image { get; set; }
         public string CatDescription { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
         public string Status { get; set; }
         public long? ParentCategoryId { get; private set; }
         public virtual Category ParentCategory { get; private set; }
