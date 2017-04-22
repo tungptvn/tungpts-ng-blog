@@ -1,3 +1,4 @@
+import 'sweetalert';
 function loginCtrl($log, authService,$state) {
   'ngInject';
   // ViewModel
@@ -9,8 +10,9 @@ function loginCtrl($log, authService,$state) {
     authService.login(vm.userCred).then(() => {
       if ($state.$current.name == 'login') {
         $state.transitionTo('admin');
-
       }
+    }).catch(err=>{
+      swal(`${err}`)
     });
   }
 }

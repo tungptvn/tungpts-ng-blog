@@ -74,23 +74,33 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       templateUrl: 'admin/post.mng.html',
       title: 'postMng'
     })
-      .state('admin.postSave', {
+    .state('admin.postSave', {
       url: '/postSave/:Id',
       controller: 'postSaveCtrl as postSave',
       templateUrl: 'admin/post.html',
       title: 'postSave'
     })
-     .state('admin.catMng', {
+    .state('admin.catMng', {
       url: '/catMng',
       controller: 'catMngCtrl as catMng',
       templateUrl: 'admin/cat.mng.html',
-      title: 'catMng'
+      title: 'catMng',
+      resolve: {
+        catList: function (categoriesService) {
+          return categoriesService.getAll();
+        }
+      }
     })
-      .state('admin.catSave', {
+    .state('admin.catSave', {
       url: '/catSave/:Id',
       controller: 'catSaveCtrl as catSave',
       templateUrl: 'admin/cat.save.html',
-      title: 'catSave'
+      title: 'catSave',
+      resolve: {
+        catItem: function (categoriesService,$stateParams) {
+          return categoriesService.getBy($stateParams.Id);
+        }
+      }
     })
     .state('login', {
       url: '/login',

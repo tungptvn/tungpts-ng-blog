@@ -23,5 +23,3 @@ function declare(serviceMap) {
 declare(services);
 
 export default servicesModule;
-
-console.log('i am running');

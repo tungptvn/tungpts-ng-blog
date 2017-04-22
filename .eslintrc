@@ -9,7 +9,7 @@
     "es6": true
   },
   "rules": {
-    "quotes": [2, "single"],
+    // "quotes": [2, "single"],
     "eol-last": 0,
     "no-debugger": 1,
     "no-mixed-requires": 0,
