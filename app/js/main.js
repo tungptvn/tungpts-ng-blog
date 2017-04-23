@@ -8,14 +8,12 @@ global.Promise.config({
 import angular from 'angular';
 import 'angular-sanitize';
 // export for others scripts to use
-import 'jquery';
-import 'bootstrap';
-import '../vendor/tinymce/tinymce';
 // angular modules
 import constants from './constants';
 import onConfig from './on_config';
 import onRun from './on_run';
 // import 'angular-ui-tinymce';
+import '../../node_modules/angular-summernote/dist/angular-summernote.min';
 import 'angular-ui-router';
 import './templates';
 import './filters';
@@ -26,6 +24,7 @@ import './directives';
 // create and bootstrap application
 const requires = [
   // 'ui.tinymce',
+  'summernote',
   'ngSanitize',
   'ui.router',
   'templates',

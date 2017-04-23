@@ -15,15 +15,17 @@
   <title ng-bind="pageTitle"></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-  <!--<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>-->
+  <link rel="stylesheet" href="./vendor/summernote/summernote.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 
   <div ui-view></div>
-
-
+  <script src="./vendor/jquery-3.2.1.min.js"></script>
+  <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--<script src="./vendor/tinymce/js/tinymce/tinymce.min.js"></script>-->
+  <script src="./vendor/summernote/summernote.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 

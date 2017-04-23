@@ -21,15 +21,9 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="PostDescription">PostDescription:</label>
         <div class="col-sm-10">
-          <input type="text" id="mytextarea" class="form-control" placeholder="PostDescription" ng-model="postSave.item.Content"></input>
+          <summernote ng-model="postSave.item.PostDescription"></summernote>
         </div>
       </div>
-      <!--<div class="form-group">
-        <label class="control-label col-sm-2" for="CreateDate">CreateDate:</label>
-        <div class="col-sm-10">
-          <input type="date" class="form-control" placeholder="CreateDate" ng-model="postSave.item.CreateDate">
-        </div>
-      </div>-->
       <div class="form-group">
         <label class="control-label col-sm-2" for="Status">Status:</label>
         <div class="col-sm-10">
@@ -57,9 +51,8 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="Content">Content:</label>
         <div class="col-sm-10">
-           <textarea ui-tinymce ng-model="postSave.item.Content"></textarea>
-          <!--<input id="summernote" ng-model="postSave.item.Content"></input>-->
-          <!--<input type="text" class="form-control" placeholder="Content" ng-model="postSave.item.Content">-->
+          <summernote height="300" ng-model="postSave.item.Content"></summernote>
+          
         </div>
       </div>
       <div class="form-group">

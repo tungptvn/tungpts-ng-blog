@@ -2,23 +2,23 @@ function postSaveCtrl(postService, $scope, postItem, $log) {
   'ngInject';
   const vm = this;
   vm.item = postItem;
-  tinymce.baseURL='/vendor/tinymce'
-  tinymce.init({
-    selector: '#mytextarea',
-    plugins: [
-      'advlist autolink lists link image charmap print preview anchor',
-      'searchreplace visualblocks code fullscreen',
-      'insertdatetime media table contextmenu paste code'
-    ]
-  });
+
   vm.title = function () {
     if (postItem.Id != 0) {
       return 'Edit'
     }
     return 'New';
   }
-  $log.debug($('#summernote')[0]);
-
+  vm.tinymceOptions = {
+    height: 250,
+    theme: 'modern',
+    plugins: [
+      'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      'searchreplace wordcount visualblocks visualchars code fullscreen',
+      'insertdatetime media nonbreaking save table contextmenu directionality',
+      'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+    ],
+  }
   vm.save = function () {
     switch (vm.item.Id) {
       case 0:
