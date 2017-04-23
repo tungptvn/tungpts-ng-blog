@@ -1,6 +1,6 @@
 import * as axios from 'axios'
 
-function OnRun($rootScope, AppSettings, storage) {
+function OnRun($rootScope, AppSettings, storage, authService, $state) {
   'ngInject';
   axios.defaults.baseURL = AppSettings.apiUrl;
   var token = storage.get('token');
@@ -19,17 +19,16 @@ function OnRun($rootScope, AppSettings, storage) {
 
     $rootScope.pageTitle += AppSettings.appTitle;
   });
-  // $rootScope.$on('$viewContentLoading',
-  //   function () {
-  //     $rootScope.isBusy = true;
-  //   });
-  // $rootScope.$on('$viewContentLoaded',
-  //   function () {
-  //     $rootScope.isBusy = false;
-  //   });
+ 
   $rootScope.$on('$stateChangeStart',
-    function () {
+    function (event, toState) {
       $rootScope.isBusy = true;
+      if (toState.name == 'admin' && !authService.isAuthenticated) {
+        event.preventDefault();
+        $state.transitionTo('login');
+
+        // $state.go('login');
+      }
 
     })
   $rootScope.$on('$stateChangeSuccess',
@@ -37,7 +36,6 @@ function OnRun($rootScope, AppSettings, storage) {
       $rootScope.isBusy = !$rootScope.isBusy;
 
     })
-
 }
 
 export default OnRun;

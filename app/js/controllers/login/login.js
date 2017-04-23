@@ -4,7 +4,6 @@ function loginCtrl($log, authService, $state) {
   'ngInject';
   // ViewModel
   const vm = this;
-  $log.info('promise', Promise.version);
   vm.title = 'this is login';
   vm.userCred = {};
   vm.login = function () {

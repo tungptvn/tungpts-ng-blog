@@ -1,28 +1,21 @@
-function postSaveCtrl(postService, $scope, postItem, $log) {
+function postSaveCtrl(postService, $scope, postItem, $log, catList) {
   'ngInject';
   const vm = this;
   vm.item = postItem;
-
+  vm.catList = catList;
+  $log.debug('catList', vm.catList);
   vm.title = function () {
     if (postItem.Id != 0) {
       return 'Edit'
     }
     return 'New';
   }
-  vm.tinymceOptions = {
-    height: 250,
-    theme: 'modern',
-    plugins: [
-      'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-      'searchreplace wordcount visualblocks visualchars code fullscreen',
-      'insertdatetime media nonbreaking save table contextmenu directionality',
-      'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
-    ],
-  }
+
   vm.save = function () {
     switch (vm.item.Id) {
       case 0:
         postService.post(vm.item).then(() => {
+          $log.debug(vm.item);
           swal('Success', 'Successfully save', 'success');
         }).catch(err => swal('Error', `${err}`, 'error'));
         break;
@@ -46,7 +39,7 @@ function postSaveCtrl(postService, $scope, postItem, $log) {
       FR.addEventListener("load", function (e) {
         document.getElementById("imgDisplay").src = e.target.result;
         $scope.$apply(() => {
-          vm.item.Image = e.target.result;
+          vm.item.FeatureImage = e.target.result;
         })
       });
       FR.readAsDataURL(this.files[0]);

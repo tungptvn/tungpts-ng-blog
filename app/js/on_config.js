@@ -87,6 +87,9 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       resolve: {
         postItem: function (postService, $stateParams) {
           return postService.getBy($stateParams.Id);
+        },
+        catList : function(categoriesService){
+          return categoriesService.getAll();
         }
       }
     })
