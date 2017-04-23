@@ -1,7 +1,6 @@
-function catSaveCtrl(catItem, categoriesService, $log, $scope, $state) {
+function catSaveCtrl(catItem, categoriesService, $log, $scope) {
   'ngInject';
   // ViewModel
-  $log.debug("$state", $state);
   const vm = this;
   vm.item = catItem;
   vm.title = function () {

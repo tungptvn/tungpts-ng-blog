@@ -13,6 +13,7 @@ function loginCtrl($log, authService, $state) {
       if ($state.$current.name == 'login') {
         $state.transitionTo('admin');
       }
+
       $log.debug("isAuthenticated", authService.isAuthenticated)
     }).catch(err => {
       swal(`Error`, `${err.error_description}`, `error`);
