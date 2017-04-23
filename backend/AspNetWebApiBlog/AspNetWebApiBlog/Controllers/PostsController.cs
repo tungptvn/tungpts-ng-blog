@@ -10,6 +10,9 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using AspNetWebApiBlog.Models;
 using System.Web.Http.Cors;
+using System.Security.Claims;
+using System.Web;
+using Microsoft.AspNet.Identity;
 
 namespace AspNetWebApiBlog.Controllers
 {
@@ -25,14 +28,14 @@ namespace AspNetWebApiBlog.Controllers
         // GET: api/Posts
         public IQueryable<Post> GetPosts()
         {
-            return db.Posts;
+            return db.Posts.Include("Category").Include("Author");
         }
 
         // GET: api/Posts/5
         [ResponseType(typeof(Post))]
         public IHttpActionResult GetPost(long id)
         {
-            Post post = db.Posts.Find(id);
+            Post post = db.Posts.Include("Category").Include("Author").Where(x=>x.Id== id).FirstOrDefault();
             if (post == null)
             {
                 return NotFound();
@@ -50,7 +53,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // PUT: api/Posts/5
-       
+       [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutPost(long id, Post post)
         {
@@ -88,13 +91,14 @@ namespace AspNetWebApiBlog.Controllers
         // POST: api/Posts
      
         [ResponseType(typeof(Post))]
+        [Authorize]
         public IHttpActionResult PostPost(Post post)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+            post.UserId = HttpContext.Current.User.Identity.GetUserId();
             db.Posts.Add(post);
             db.SaveChanges();
 
@@ -104,6 +108,7 @@ namespace AspNetWebApiBlog.Controllers
         // DELETE: api/Posts/5
       
         [ResponseType(typeof(Post))]
+        [Authorize]
         public IHttpActionResult DeletePost(long id)
         {
             Post post = db.Posts.Find(id);

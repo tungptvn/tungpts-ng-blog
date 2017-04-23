@@ -9,15 +9,15 @@ namespace AspNetWebApiBlog.Models
 {
     public class Post
     {
-        public long Id { get; private set; }
+        public long Id { get;  set; }
         public string Title { get; set; }
-        public string PostDescription { get; set; }
+        public string PostDescription { get; set; } 
         public string Slug { get; set; }
         public string Status { get; set; }
         public string FeatureImage { get; set; }
         public string Content { get; set; }
         public int HitCounter { get; set; }
-        public DateTime PostDate { get; set; }
+        public DateTime PostDate { get; set; } = DateTime.Now;
         public long CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }

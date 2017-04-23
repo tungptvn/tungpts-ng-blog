@@ -57,7 +57,6 @@ namespace AspNetWebApiBlog.Providers
             {
                 context.AdditionalResponseParameters.Add(property.Key, property.Value);
             }
-
             return Task.FromResult<object>(null);
         }
 
