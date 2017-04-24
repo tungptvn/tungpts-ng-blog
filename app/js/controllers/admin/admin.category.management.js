@@ -1,9 +1,9 @@
 import 'sweetalert';
 
-function catMngCtrl(catList, categoriesService,$state,$log) {
+function catMngCtrl(catList, categoriesService, $state, $log, $scope) {
   'ngInject';
   // ViewModel
-  
+
   $log.debug("$state", $state);
   const vm = this;
   vm.catList = catList;
@@ -20,14 +20,17 @@ function catMngCtrl(catList, categoriesService,$state,$log) {
         closeOnConfirm: false,
         closeOnCancel: false
       },
-      function (isConfirm) {
+      (isConfirm) => {
         if (isConfirm) {
-          categoriesService.delete(Id).then(() => {
-            swal('Deleted!', 'The entity has been deleted.', 'success');
-            categoriesService.getAll(), then(res => {
-              vm.catList = res;
+          categoriesService.delete(Id).then((res) => {
+            $log.debug("deleted", res);
+            swal('Deleted', 'The entity has been deleted :)', 'success');
+            categoriesService.getAll().then(res => {
+              $scope.$apply(() => {
+                vm.catList = res;
+              })
             });
-          }).catch(err => swal(`Error`, `${err}`, `rrror`))
+          }).catch(err => swal(`Error`, `${err}`, `error`))
         } else {
           swal('Cancelled', 'The entity has is safe :)', 'error');
         }
