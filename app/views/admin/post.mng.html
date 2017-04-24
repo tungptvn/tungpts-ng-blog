@@ -14,7 +14,7 @@
       <thead>
         <tr>
           <th>Title</th>
-          <th>PostDescription</th>
+          <!--<th>PostDescription</th>-->
           <th>HitCounter</th>
           <th>PostDate</th>
           <th>Category</th>
@@ -25,7 +25,7 @@
       <tbody>
         <tr ng-repeat="item in postMng.postList| filter:searchText">
           <td>{{item.Title}}</td>
-          <td>{{item.PostDescription}}</td>
+          <!--<td>{{item.PostDescription}}</td>-->
           <td>{{item.HitCounter}}</td>
           <td>{{item.PostDate}}</td>
           <td>{{item.Category.CategoryName}}</td>
