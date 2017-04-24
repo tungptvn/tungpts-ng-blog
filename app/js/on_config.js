@@ -26,7 +26,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
 
       templateUrl: 'home/index.html',
       controller: 'homeCtrl as home',
-      title: 'home'
+      title: 'home',
+       resolve:{
+        postList : function(postService){
+          return postService.getAll();
+        }
+      }
     }).state('default.about', {
       url: 'about',
       controller: 'aboutCtrl as about',
@@ -67,6 +72,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       controller: 'adminCtrl as admin',
       templateUrl: 'admin/index.html',
       title: 'admin'
+     
     })
     .state('admin.postMng', {
       url: '/postMng',
