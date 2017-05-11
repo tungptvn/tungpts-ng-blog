@@ -18,9 +18,9 @@ namespace AspNetWebApiBlog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: api/Categories
-        public IQueryable<Category> GetCategories()
+        public IQueryable<object> GetCategories()
         {
-            return db.Categories;
+            return db.Categories.Select((x) => new { x.Id,x.CategoryName,x.CatDescription, x.Image,x.ParentCategory,x.ParentCategoryId,x.Status,x.SubCategories,NumberOfPosts=x.Posts.Count() });
         }
 
         // GET: api/Categories/5

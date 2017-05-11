@@ -17,6 +17,7 @@ namespace AspNetWebApiBlog.Models
         public long? ParentCategoryId { get; private set; }
         public virtual Category ParentCategory { get; private set; }
         public virtual ICollection<Category> SubCategories { get; private set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
     public class CategoryConfiguration : EntityTypeConfiguration<Category>
     {

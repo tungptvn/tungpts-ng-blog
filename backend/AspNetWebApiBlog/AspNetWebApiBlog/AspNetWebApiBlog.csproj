@@ -282,6 +282,10 @@
     <Compile Include="Migrations\201704210228150_fix_unique_discription.Designer.cs">
       <DependentUpon>201704210228150_fix_unique_discription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705111326137_add_virual_posts_to_cat.cs" />
+    <Compile Include="Migrations\201705111326137_add_virual_posts_to_cat.Designer.cs">
+      <DependentUpon>201705111326137_add_virual_posts_to_cat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -390,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704210228150_fix_unique_discription.resx">
       <DependentUpon>201704210228150_fix_unique_discription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111326137_add_virual_posts_to_cat.resx">
+      <DependentUpon>201705111326137_add_virual_posts_to_cat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
