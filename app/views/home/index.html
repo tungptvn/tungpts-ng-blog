@@ -3,7 +3,7 @@
   <small>Thoughts of a Dev</small>
 </h1>
 
-<div ng-repeat="post in home.postList">
+<div ng-repeat="post in home.postList| filter: default.searchText">
   <h2>
     <a ui-sref="default.post({Id: post.Id})">{{post.Title}}</a>
   </h2>

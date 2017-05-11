@@ -43,7 +43,7 @@
       <div class="well">
         <h4>Blog Search</h4>
         <div class="input-group">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" ng-model="default.searchText">
           <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -59,7 +59,7 @@
         <div class="row">
           <div class="col-lg-6">
             <ul class="list-unstyled">
-              <li ng-repeat="cat in default.categories"><a ui-sref="default.category({Id: cat.Id})">{{cat.CategoryName}}</a>
+              <li ng-repeat="cat in default.categories"><a ui-sref="default.category({Id: cat.Id})">{{cat.CategoryName}} ({{cat.NumberOfPosts}})</a>
               </li>
             </ul>
           </div>
@@ -70,9 +70,9 @@
 
       <!-- Side Widget Well -->
       <div class="well">
-        <h4>Side Widget Well</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit
-          aliquam repellat tempore quos aspernatur vero.</p>
+        <h4>Refs</h4>
+        <img src="../images/AngularJS-large.png" alt="" style="max-width:100%">
+        <img src="../images/MVC3.png" alt="" style="max-width:100%">
       </div>
 
     </div>
@@ -86,7 +86,7 @@
   <footer>
     <div class="row">
       <div class="col-lg-12">
-        <p>Copyright © Your Website 2014</p>
+        <p>Copyright ©2017</p>
       </div>
       <!-- /.col-lg-12 -->
     </div>
