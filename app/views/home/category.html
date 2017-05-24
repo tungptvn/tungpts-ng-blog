@@ -4,7 +4,7 @@
 </h1>
 
 <!-- First Blog Post -->
-<div ng-repeat="post in category.posts">
+<div ng-repeat="post in category.posts| filter: default.searchText">
   <h2>
     <a ui-sref="default.post({Id: post.Id})">{{post.Title}}</a>
   </h2>
