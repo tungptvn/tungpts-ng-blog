@@ -4,7 +4,7 @@ global.Promise.config({
     wForgottenReturn: false
   }
 });
-
+require('babel-polyfill');
 import angular from 'angular';
 import 'angular-sanitize';
 // export for others scripts to use

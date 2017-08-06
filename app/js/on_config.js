@@ -71,7 +71,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       url: '/admin',
       controller: 'adminCtrl as admin',
       templateUrl: 'admin/index.html',
-      title: 'admin'
+      title: 'admin',
+      resolve: {
+        currentUserRoles: function (userService) {
+          return userService.getCurrentUserRoles()
+        }
+      }
 
     })
     .state('admin.postMng', {
@@ -129,6 +134,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       controller: 'loginCtrl as loginVM',
       templateUrl: 'login/login.html',
       title: 'login',
+    })
+    .state('signIn', {
+      url: '/signIn',
+      controller: 'signInCtrl as signInVM',
+      templateUrl: 'signIn/signIn.html',
+      title: 'signIn',
     });
 
 

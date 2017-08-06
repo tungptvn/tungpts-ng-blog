@@ -28,7 +28,10 @@ namespace AspNetWebApiBlog.Controllers
         // GET: api/Posts
         public IQueryable<Post> GetPosts()
         {
-            return db.Posts.Include("Category").Include("Author").OrderByDescending(x=>x.Id);
+            var sql = db.Posts.Include("Category").Include("Author").OrderByDescending(x => x.Id).AsQueryable();
+            string userId = RequestContext.Principal.Identity.GetUserId();
+            if (!String.IsNullOrEmpty(userId)) sql = sql.Where(x => x.Author.Id.Equals(userId));
+            return sql;
         }
 
         // GET: api/Posts/5
@@ -53,7 +56,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // PUT: api/Posts/5
-       [Authorize]
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutPost(long id, Post post)
         {
@@ -87,9 +90,27 @@ namespace AspNetWebApiBlog.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        [Authorize(Roles = "Admin")]
+        [ResponseType(typeof(void))]
+        [HttpPatch]
+
+        [Route("api/Posts/ApproveOrCancel/{id}")]
+        public IHttpActionResult ApproveOrCancelPost(long id)
+        {
+            var post = db.Posts.Find(id);
+            if (post == null) return NotFound();
+            if (string.IsNullOrEmpty(post.Status) || post.Status != "ACTIVE")
+            {
+                post.Status = "ACTIVE";
+            }
+            else post.Status = "DEACTIVE";
+            db.SaveChanges();
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
 
         // POST: api/Posts
-     
+
         [ResponseType(typeof(Post))]
         [Authorize]
         public IHttpActionResult PostPost(Post post)
