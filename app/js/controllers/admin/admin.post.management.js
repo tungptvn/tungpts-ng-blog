@@ -1,9 +1,12 @@
-function postMngCtrl(postList,postService,$scope,$log) {
+function postMngCtrl(postList, catList, postService, $scope, $log) {
   'ngInject';
   // ViewModel
   const vm = this;
   vm.postList = postList;
-  vm.searchText = 'asdas';
+  console.log('postList', postList);
+  vm.catList = catList
+  console.log('catList', vm.catList);
+  vm.searchText = '';
   vm.title = 'Posts Management';
   vm.delete = function (Id) {
     swal({

@@ -27,8 +27,8 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       templateUrl: 'home/index.html',
       controller: 'homeCtrl as home',
       title: 'home',
-       resolve:{
-        postList : function(postService){
+      resolve: {
+        postList: function (postService) {
           return postService.getAll();
         }
       }
@@ -72,7 +72,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       controller: 'adminCtrl as admin',
       templateUrl: 'admin/index.html',
       title: 'admin'
-     
+
     })
     .state('admin.postMng', {
       url: '/postMng',
@@ -82,6 +82,9 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       resolve: {
         postList: function (postService) {
           return postService.getAll();
+        },
+        catList: function (categoriesService) {
+          return categoriesService.getAll()
         }
       }
     })
@@ -94,7 +97,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
         postItem: function (postService, $stateParams) {
           return postService.getBy($stateParams.Id);
         },
-        catList : function(categoriesService){
+        catList: function (categoriesService) {
           return categoriesService.getAll();
         }
       }
