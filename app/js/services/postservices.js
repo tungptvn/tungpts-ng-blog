@@ -62,6 +62,11 @@ function postService($log) {
         .catch(err => reject(err));
     });
   }
+   service.ApproveOrCancelPost = function (id) {
+    return new Promise((reslove, reject) => {
+      axios.patch(apiEntity + '/ApproveOrCancel/' + id).then(res => reslove(res.data)).catch(err => reject(err));
+    })
+  }
   return service;
 }
 export default {

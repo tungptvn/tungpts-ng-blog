@@ -46,7 +46,7 @@ function userService($log) {
   }
   service.activeOrDeactive = function (userId) {
     return new Promise((reslove, reject) => {
-      axios.put(`api/ApplicationUsers/ActiveOrDeactive/${userId}`)
+      axios.patch(`api/ApplicationUsers/ActiveOrDeactive/${userId}`)
         .then(rec => reslove(rec.data))
     })
   }

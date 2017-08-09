@@ -7,6 +7,7 @@ namespace AspNetWebApiBlog.Models
 {
     public class UserBindingModel
     {
+        public string Id { get; set; }
         public bool IsActive { get; set; }
         public string  FName { get; set; }
         public string LName { get; set; }
@@ -15,6 +16,7 @@ namespace AspNetWebApiBlog.Models
         public string Email { get; set; }
         public string Address  { get; set; }
         public string  UserName { get; set; }
+        public string PhoneNumber { get; set; }
         public UserBindingModel(ApplicationUser user)
         {
             this.IsActive = user.IsActive;
@@ -25,6 +27,8 @@ namespace AspNetWebApiBlog.Models
             Email = user.Email;
             Gender = user.Gender;
             UserName = user.UserName;
+            PhoneNumber = user.PhoneNumber;
+            Id = user.Id;
 
         }
 

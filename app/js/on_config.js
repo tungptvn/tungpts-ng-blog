@@ -1,9 +1,12 @@
-function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compileProvider) {
+function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compileProvider,$logProvider) {
   'ngInject';
 
   if (process.env.NODE_ENV === 'production') {
     $compileProvider.debugInfoEnabled(false);
   }
+  app.config(function ($logProvider) {
+    $logProvider.debugEnabled(true);
+  });
 
   $locationProvider.html5Mode({
     enabled: false,
@@ -126,6 +129,28 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       resolve: {
         catItem: function (categoriesService, $stateParams) {
           return categoriesService.getBy($stateParams.Id);
+        }
+      }
+    })
+    .state('admin.userMng', {
+      url: '/userMng',
+      controller: 'userMngCtrl as userMng',
+      templateUrl: 'admin/user.mng.html',
+      title: 'userMng',
+      resolve: {
+        users: function (userService) {
+          return userService.getAll();
+        }
+      }
+    })
+     .state('admin.userSave', {
+      url: '/userSave/:Id',
+      controller: 'userSaveCtrl as userSave',
+      templateUrl: 'admin/user.save.html',
+      title: 'userSave',
+      resolve: {
+        user: function (userService, $stateParams) {
+          return userService.getBy($stateParams.Id);
         }
       }
     })

@@ -27,7 +27,7 @@ function postMngCtrl(postList, catList, postService, $scope, $log) {
             swal('Deleted', 'The entity has been deleted :)', 'success');
             postService.getAll().then(res => {
               $scope.$apply(() => {
-                vm.catList = res;
+                vm.postList = res;
               })
             });
           }).catch(err => swal(`Error`, `${err}`, `error`))
@@ -36,6 +36,16 @@ function postMngCtrl(postList, catList, postService, $scope, $log) {
         }
       });
 
+  }
+  vm.ApproveOrCancelPost = function (id) {
+    postService.ApproveOrCancelPost(id).then(_ => swal('success', 'action successfully :)', 'success')).then(_ => {
+      postService.getAll().then(rec => {
+        $scope.$apply(() => {
+          vm.postList = rec
+        })
+
+      })
+    })
   }
 }
 

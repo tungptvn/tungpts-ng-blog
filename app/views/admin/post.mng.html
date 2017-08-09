@@ -22,7 +22,7 @@
         <tr>
           <th>Title</th>
           <!--<th>PostDescription</th>-->
-          <th>HitCounter</th>
+          <th>Status</th>
           <th>PostDate</th>
           <th>Category</th>
           <th>Author</th>
@@ -33,11 +33,12 @@
         <tr ng-repeat="item in postMng.postList| filter:searchText | filter: category:strict">
           <td>{{item.Title}}</td>
           <!--<td>{{item.PostDescription}}</td>-->
-          <td>{{item.HitCounter}}</td>
+          <td>{{item.Status}}</td>
           <td>{{item.PostDate}}</td>
           <td>{{item.Category.CategoryName}}</td>
           <td>{{item.Author.UserName}}</td>
           <td><a ui-sref="admin.postSave({Id: item.Id})" role="button" class="btn btn-xs btn-success">Edit</a>
+             <button ng-if="admin.isAdmin" class="btn btn-xs btn-success" ng-click="postMng.ApproveOrCancelPost(item.Id)">ApproveOrCancel </button>
             <button class="btn btn-xs btn-warning" ng-click="postMng.delete(item.Id)">Delete </button>
           </td>
         </tr>

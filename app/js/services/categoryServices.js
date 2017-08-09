@@ -53,6 +53,7 @@ function categoriesService($log) {
       axios.delete(apiEntity + '/' + id).then(res => reslove(res)).catch(err => reject(err));
     })
   }
+ 
   return service;
 }
 export default {

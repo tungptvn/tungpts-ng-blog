@@ -30,7 +30,7 @@ namespace AspNetWebApiBlog.Controllers
         {
             var sql = db.Posts.Include("Category").Include("Author").OrderByDescending(x => x.Id).AsQueryable();
             string userId = RequestContext.Principal.Identity.GetUserId();
-            if (!String.IsNullOrEmpty(userId)) sql = sql.Where(x => x.Author.Id.Equals(userId));
+            if (!String.IsNullOrEmpty(userId) && !User.IsInRole("Admin")) sql = sql.Where(x => x.Author.Id.Equals(userId));
             return sql;
         }
 
@@ -38,7 +38,7 @@ namespace AspNetWebApiBlog.Controllers
         [ResponseType(typeof(Post))]
         public IHttpActionResult GetPost(long id)
         {
-            Post post = db.Posts.Include("Category").Include("Author").Where(x=>x.Id== id).FirstOrDefault();
+            Post post = db.Posts.Include("Category").Include("Author").Where(x => x.Id == id).FirstOrDefault();
             if (post == null)
             {
                 return NotFound();
@@ -99,11 +99,11 @@ namespace AspNetWebApiBlog.Controllers
         {
             var post = db.Posts.Find(id);
             if (post == null) return NotFound();
-            if (string.IsNullOrEmpty(post.Status) || post.Status != "ACTIVE")
+            if (string.IsNullOrEmpty(post.Status) || post.Status != "ENABLE")
             {
-                post.Status = "ACTIVE";
+                post.Status = "ENABLE";
             }
-            else post.Status = "DEACTIVE";
+            else post.Status = "DISABLE";
             db.SaveChanges();
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -127,7 +127,7 @@ namespace AspNetWebApiBlog.Controllers
         }
 
         // DELETE: api/Posts/5
-      
+
         [ResponseType(typeof(Post))]
         [Authorize]
         public IHttpActionResult DeletePost(long id)

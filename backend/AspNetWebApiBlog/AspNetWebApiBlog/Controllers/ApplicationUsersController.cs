@@ -60,12 +60,13 @@ namespace AspNetWebApiBlog.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var user = db.Users.Find(id);
-            if (user == null) return NotFound();
-            if (user.Id == User.Identity.GetUserId() || user.Roles.Any(x => db.Roles.FirstOrDefault(r => r.Name == "Admim").Id == x.RoleId))
+            var user = db.Users.Find( User.Identity.GetUserId());
+            if (user == null) return BadRequest ();
+            var str = User.Identity.GetUserId();
+            if ( User.IsInRole("Admin") || user.Id==id)
             {
                 // chi ro cac truong co the cap nhat
+           
                 user.PhoneNumber = applicationUser.PhoneNumber;
                 user.Address = applicationUser.Address;
                 user.Age = applicationUser.Age;
