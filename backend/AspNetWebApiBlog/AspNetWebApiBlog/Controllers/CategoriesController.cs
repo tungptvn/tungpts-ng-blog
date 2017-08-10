@@ -20,7 +20,7 @@ namespace AspNetWebApiBlog.Controllers
         // GET: api/Categories
         public IQueryable<object> GetCategories()
         {
-            return db.Categories.Select((x) => new { x.Id,x.CategoryName,x.CatDescription, x.Image,x.ParentCategory,x.ParentCategoryId,x.Status,x.SubCategories,NumberOfPosts=x.Posts.Count() });
+            return db.Categories.Select((x) => new { x.Id, x.CategoryName, x.CatDescription, x.Image, x.ParentCategory, x.ParentCategoryId, x.Status, x.SubCategories, NumberOfPosts = x.Posts.Count(p => "ENABLE" == p.Status) });
         }
 
         // GET: api/Categories/5

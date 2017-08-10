@@ -24,14 +24,20 @@ namespace AspNetWebApiBlog.Controllers
         {
             db.Configuration.LazyLoadingEnabled = false;
         }
+        [HttpGet]
+        [Route("api/Posts/GetEnablePosts")]
+        public IQueryable<Post> GetEnablePosts()
+        {
+            return db.Posts.IsEnable().DescById().AsQueryable();
+        }
 
         // GET: api/Posts
         public IQueryable<Post> GetPosts()
         {
-            var sql = db.Posts.Include("Category").Include("Author").OrderByDescending(x => x.Id).AsQueryable();
+            var sql = db.Posts.Include("Category").Include("Author").DescById();
             string userId = RequestContext.Principal.Identity.GetUserId();
-            if (!String.IsNullOrEmpty(userId) && !User.IsInRole("Admin")) sql = sql.Where(x => x.Author.Id.Equals(userId));
-            return sql;
+            if (!String.IsNullOrEmpty(userId) && !User.IsInRole("Admin")) sql = sql.FilterByUserId(userId);
+            return sql.AsQueryable();
         }
 
         // GET: api/Posts/5
@@ -52,7 +58,7 @@ namespace AspNetWebApiBlog.Controllers
         [ResponseType(typeof(Post))]
         public IQueryable<Post> GetPostByCategory(long id)
         {
-            return db.Posts.Where(x => x.CategoryId == id).OrderByDescending(x => x.Id);
+            return db.Posts.Where(x => x.CategoryId == id).DescById().IsEnable().AsQueryable();
         }
 
         // PUT: api/Posts/5
@@ -156,6 +162,20 @@ namespace AspNetWebApiBlog.Controllers
         private bool PostExists(long id)
         {
             return db.Posts.Count(e => e.Id == id) > 0;
+        }
+    }
+    public static class PostfilterExtentions
+    {
+        public static IEnumerable<Post> IsEnable(this IEnumerable<Post> sql)
+        {
+            return sql.Where(x => "ENABLE"==  x.Status);
+        }
+        public static IEnumerable<Post> DescById(this IEnumerable<Post> sql)
+        {
+            return sql.OrderByDescending(x => x.Id);
+        }
+        public static IEnumerable<Post> FilterByUserId(this IEnumerable<Post> sql , string userId) {
+            return sql.Where(x => x.UserId == userId);
         }
     }
 }
