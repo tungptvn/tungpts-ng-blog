@@ -32,7 +32,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       title: 'home',
       resolve: {
         postList: function (postService) {
-          return postService.getAll();
+          return postService.getEnablePosts();
         }
       }
     }).state('default.about', {

@@ -62,9 +62,14 @@ function postService($log) {
         .catch(err => reject(err));
     });
   }
-   service.ApproveOrCancelPost = function (id) {
+  service.ApproveOrCancelPost = function (id) {
     return new Promise((reslove, reject) => {
       axios.patch(apiEntity + '/ApproveOrCancel/' + id).then(res => reslove(res.data)).catch(err => reject(err));
+    })
+  }
+  service.getEnablePosts = function () {
+    return new Promise(reslove => {
+      axios.get('api/Posts/GetEnablePosts').then(rec => reslove(rec.data))
     })
   }
   return service;
