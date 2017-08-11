@@ -160,11 +160,11 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       templateUrl: 'login/login.html',
       title: 'login',
     })
-    .state('signIn', {
-      url: '/signIn',
-      controller: 'signInCtrl as signInVM',
-      templateUrl: 'signIn/signIn.html',
-      title: 'signIn',
+    .state('signUp', {
+      url: '/signUp',
+      controller: 'signUpCtrl as signUpVM',
+      templateUrl: 'signUp/signUp.html',
+      title: 'signUp',
     });
 
 
