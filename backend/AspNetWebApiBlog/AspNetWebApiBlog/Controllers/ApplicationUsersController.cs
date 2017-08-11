@@ -60,7 +60,7 @@ namespace AspNetWebApiBlog.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var user = db.Users.Find( User.Identity.GetUserId());
+            var user = db.Users.Find( id);
             if (user == null) return BadRequest ();
             var str = User.Identity.GetUserId();
             if ( User.IsInRole("Admin") || user.Id==id)
