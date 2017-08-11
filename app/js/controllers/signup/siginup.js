@@ -1,15 +1,15 @@
 import 'sweetalert';
 
-function signInCtrl($log, authService, $state) {
+function signUpCtrl($log, authService, $state) {
   'ngInject';
   // ViewModel
   const vm = this;
-  vm.title = 'this is signIn';
+  vm.title = 'this is signUp';
   vm.user = {};
   vm.signIn = function () {
     authService.signIn(vm.user).then(() => {
       swal(`Success`, `Go to AdminCP`, `success`);
-      if ($state.$current.name == 'signIn') {
+      if ($state.$current.name == 'signUp') {
         $state.transitionTo('admin');
       }
 
@@ -21,6 +21,6 @@ function signInCtrl($log, authService, $state) {
 }
 
 export default {
-  name: 'signInCtrl',
-  fn: signInCtrl
+  name: 'signUpCtrl',
+  fn: signUpCtrl
 };

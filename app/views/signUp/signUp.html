@@ -3,19 +3,19 @@
     <div class="col-md-4 col-md-offset-4">
       <div class="login-panel panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Please Sign In</h3>
+          <h3 class="panel-title">Please Sign Up</h3>
         </div>
         <div class="panel-body">
-          <form role="form" ng-submit="signInVM.signIn()">
+          <form role="form" ng-submit="signUpVM.signIn()">
             <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="email" type="text" autofocus ng-model="signInVM.user.Email" required>
+                <input class="form-control" placeholder="email" type="text" autofocus ng-model="signUpVM.user.Email" required>
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="password" type="password" autofocus ng-model="signInVM.user.Password" required>
+                <input class="form-control" placeholder="password" type="password" autofocus ng-model="signUpVM.user.Password" required>
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="ConfirmPassword" type="password" required autofocus ng-model="signInVM.user.ConfirmPassword"
+                <input class="form-control" placeholder="ConfirmPassword" type="password" required autofocus ng-model="signUpVM.user.ConfirmPassword"
                   required>
               </div>
               <div class="checkbox">
