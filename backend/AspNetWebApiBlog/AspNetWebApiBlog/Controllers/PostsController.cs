@@ -28,7 +28,7 @@ namespace AspNetWebApiBlog.Controllers
         [Route("api/Posts/GetEnablePosts")]
         public IQueryable<Post> GetEnablePosts()
         {
-            return db.Posts.IsEnable().DescById().AsQueryable();
+            return db.Posts.Include("Author").IsEnable().DescById().AsQueryable();
         }
 
         // GET: api/Posts

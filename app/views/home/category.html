@@ -9,7 +9,7 @@
     <a ui-sref="default.post({Id: post.Id})">{{post.Title}}</a>
   </h2>
   <p class="lead">
-    by <a>admin</a>
+    by <a>{{post.Author.UserName}}</a>
   </p>
   <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.PostDate}}</p>
   <hr>
